@@ -87,8 +87,10 @@ const getCasualityCountForClass = (data, pclass) => {
 // passenger data where the age is missing. 
 
 const getMinAge = (data) => {
-	// Math.min(...arr) 
-	return 0
+	// Math.min(...arr)
+	const passenger_ages = data.filter(passenger => passenger.fields.age).map(passenger => passenger.fields.age)
+	const youngest_age = Math.min(...passenger_ages)
+	return youngest_age
 }
 
 
@@ -97,7 +99,9 @@ const getMinAge = (data) => {
 // age is missing.
 
 const getMaxAge = (data) => {
-	return 0
+	const passenger_ages = data.filter(passenger => passenger.fields.age).map(passenger => passenger.fields.age)
+	const oldest_age = Math.max(...passenger_ages)
+	return oldest_age
 }
 
 
