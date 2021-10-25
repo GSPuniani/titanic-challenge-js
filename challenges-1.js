@@ -87,7 +87,6 @@ const getCasualityCountForClass = (data, pclass) => {
 // passenger data where the age is missing. 
 
 const getMinAge = (data) => {
-	// Math.min(...arr)
 	const passenger_ages = data.filter(passenger => passenger.fields.age).map(passenger => passenger.fields.age)
 	const youngest_age = Math.min(...passenger_ages)
 	return youngest_age
@@ -112,7 +111,8 @@ const getMaxAge = (data) => {
 // embarkation code. Return the count of passenegers with that code.
 
 const getEmbarkedCount = (data, embarked) => {
-	return 0
+	const embarkedCount = data.filter(passenger => passenger.fields.embarked === embarked)
+	return embarkedCount.length
 }
 
 
@@ -121,7 +121,9 @@ const getEmbarkedCount = (data, embarked) => {
 // for some passengers you'll need to filter this out!
 
 const getMinFare = (data) => {
-	return -1
+	const passenger_fares = data.filter(passenger => passenger.fields.fare).map(passenger => passenger.fields.fare)
+	const min_fare = Math.min(...passenger_fares)
+	return min_fare
 }
 
 
@@ -130,7 +132,9 @@ const getMinFare = (data) => {
 // passengers are missing data for fare. Be sure to filter these! 
 
 const getMaxFare = (data) => {
-	return 0
+	const passenger_fares = data.filter(passenger => passenger.fields.fare).map(passenger => passenger.fields.fare)
+	const max_fare = Math.max(...passenger_fares)
+	return max_fare
 }
 
 
