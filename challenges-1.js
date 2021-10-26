@@ -209,7 +209,9 @@ const getMedianFare = (data) => {
 // available. 
 
 const getAverageAge = (data) => {
-	return 0
+	const passengers_with_ages = data.filter(passenger => passenger.fields.age !== undefined)
+	const ages_sum = passengers_with_ages.reduce((acc, passenger) => acc + passenger.fields.age, 0)
+	return ages_sum / passengers_with_ages.length
 }
 
 
@@ -227,7 +229,9 @@ const getMedianAge = (data) => {
 // the total number. 
 
 const getAverageAgeByGender = (data, gender) => {
-	return 0
+	const passengers_ages_gender = data.filter(passenger => passenger.fields.age !== undefined && passenger.fields.sex === gender)
+	const ages_sum = passengers_ages_gender.reduce((acc, passenger) => acc + passenger.fields.age, 0)
+	return ages_sum / passengers_ages_gender.length
 }
 
 
