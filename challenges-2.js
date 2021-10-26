@@ -25,7 +25,7 @@
 // Or if property = 'age' -> [40, 26, 22, 28, 23, 45, 21, ...]
 
 const getAllValuesForProperty = (data, property) => {
-	const values = data.map(passenger => passenger.fields.property)
+	const values = data.map(passenger => passenger.fields[property])
 	return values
 }
 
