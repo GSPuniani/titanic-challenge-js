@@ -76,23 +76,23 @@ describe('Challenge 2 Titanic', () => {
 		expect(index.getAllValuesForProperty(data, 'embarked')).toEqual(allEmbarked)
 	})
 
-	// test('Test filterByProperty', () => {
-	// 	const allMale = data.filter(p => p.fields.sex === 'male')
-	// 	const allFemale = data.filter(p => p.fields.sex === 'female')
+	test('Test filterByProperty', () => {
+		const allMale = data.filter(p => p.fields.sex === 'male')
+		const allFemale = data.filter(p => p.fields.sex === 'female')
 
-	// 	expect(index.filterByProperty(data, 'sex', 'male')).toEqual(allMale)
-	// 	expect(index.filterByProperty(data, 'sex', 'female')).toEqual(allFemale)
-	// })
+		expect(index.filterByProperty(data, 'sex', 'male')).toEqual(allMale)
+		expect(index.filterByProperty(data, 'sex', 'female')).toEqual(allFemale)
+	})
 
-	// test('Test filterNullForProperty', () => {
-	// 	const faresNotNull = data.filter(p => p.fields.fare !== undefined)
-	// 	const agesNotNull = data.filter(p => p.fields.age !== undefined)
-	// 	const pclassNotNull = data.filter(p => p.fields.pclass !== undefined)
+	test('Test filterNullForProperty', () => {
+		const faresNotNull = data.filter(p => p.fields.fare !== undefined)
+		const agesNotNull = data.filter(p => p.fields.age !== undefined)
+		const pclassNotNull = data.filter(p => p.fields.pclass !== undefined)
 
-	// 	expect(index.filterNullForProperty(data, 'fare')).toEqual(faresNotNull)
-	// 	expect(index.filterNullForProperty(data, 'age')).toEqual(agesNotNull)
-	// 	expect(index.filterNullForProperty(data, 'pclass')).toEqual(pclassNotNull)
-	// })
+		expect(index.filterNullForProperty(data, 'fare')).toEqual(faresNotNull)
+		expect(index.filterNullForProperty(data, 'age')).toEqual(agesNotNull)
+		expect(index.filterNullForProperty(data, 'pclass')).toEqual(pclassNotNull)
+	})
 
 	// test('Test sumAllProperty', () => {
 	// 	const sumAges = data.reduce((acc, p) => p.fields.age !== undefined ? acc + p.fields.age : acc, 0)

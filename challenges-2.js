@@ -35,7 +35,8 @@ const getAllValuesForProperty = (data, property) => {
 // array of all the male passengers [{...}, {...}, {...}, ...]
 
 const filterByProperty = (data, property, value) => {
-	return []
+	const filtered_values = data.filter(passenger => passenger.fields[property] === value)
+	return filtered_values
 }
 
 // 3 -------------------------------------------------------------
@@ -44,7 +45,8 @@ const filterByProperty = (data, property, value) => {
 // given property have been removed
 
 const filterNullForProperty = (data, property) => {
-	return []
+	const valid_values = data.filter(passenger => passenger.fields[property] !== undefined)
+	return valid_values
 }
 
 // 4 -------------------------------------------------------------
