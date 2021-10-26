@@ -191,7 +191,7 @@ const getAverageFare = (data) => {
 
 
 // 17 --------------------------------------------------------------
-// Return the median fare. The median is the value equal distance
+// Return the median fare. The median is the value equidistant
 // from the minimum and maximum values. Filter passengers who are 
 // missing fares. Sort the passengers on the fare pick the one in
 // the middle: [11,33,77] <- 33 is the median. If number of items 
@@ -199,7 +199,11 @@ const getAverageFare = (data) => {
 // 4 + 5 = 9 / 2 median is 4.5!
 
 const getMedianFare = (data) => {
-	return 0
+	const fares = data.filter(passenger => passenger.fields.fare !== undefined).map(passenger => passenger.fields.fare)
+	const sorted_fares = [...fares].sort((a, b) => a - b)
+	const midpoint = Math.floor(sorted_fares.length / 2)
+
+	return sorted_fares.length % 2 !== 0 ? sorted_fares[midpoint] : (sorted_fares[midpoint - 1] + sorted_fares[midpoint]) / 2
 }
 
 
@@ -220,7 +224,11 @@ const getAverageAge = (data) => {
 // finding the middle value. 
 
 const getMedianAge = (data) => {
-	return 0
+	const ages = data.filter(passenger => passenger.fields.age !== undefined).map(passenger => passenger.fields.age)
+	const sorted_ages = [...ages].sort((a, b) => a - b)
+	const midpoint = Math.floor(sorted_ages.length / 2)
+
+	return sorted_ages.length % 2 !== 0 ? sorted_ages[midpoint] : (sorted_ages[midpoint - 1] + sorted_ages[midpoint]) / 2
 }
 
 
