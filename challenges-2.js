@@ -55,7 +55,9 @@ const filterNullForProperty = (data, property) => {
 // Return the total of all values for a given property. This
 
 const sumAllProperty = (data, property) => {
-	return 0
+	const valid_data = filterNullForProperty(data, property)
+	const sum_all = valid_data.reduce((acc, valid_data) => acc + valid_data.fields[property], 0)
+	return sum_all
 }
 
 

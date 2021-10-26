@@ -94,13 +94,13 @@ describe('Challenge 2 Titanic', () => {
 		expect(index.filterNullForProperty(data, 'pclass')).toEqual(pclassNotNull)
 	})
 
-	// test('Test sumAllProperty', () => {
-	// 	const sumAges = data.reduce((acc, p) => p.fields.age !== undefined ? acc + p.fields.age : acc, 0)
-	// 	const sumFares = data.reduce((acc, p) => p.fields.fare !== undefined ? acc + p.fields.fare : acc, 0)
+	test('Test sumAllProperty', () => {
+		const sumAges = data.reduce((acc, p) => p.fields.age !== undefined ? acc + p.fields.age : acc, 0)
+		const sumFares = data.reduce((acc, p) => p.fields.fare !== undefined ? acc + p.fields.fare : acc, 0)
 
-	// 	expect(index.sumAllProperty(data, 'age')).toBe(sumAges)
-	// 	expect(index.sumAllProperty(data, 'fare')).toBe(sumFares)
-	// })
+		expect(index.sumAllProperty(data, 'age')).toBe(sumAges)
+		expect(index.sumAllProperty(data, 'fare')).toBe(sumFares)
+	})
 
 	// test('Test countAllProperty', () => {
 	// 	const embarkedCounts = data.reduce((acc, p) => {
