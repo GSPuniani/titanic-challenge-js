@@ -72,7 +72,15 @@ const sumAllProperty = (data, property) => {
 // at Cherbourg, 77 emabrked at Queenstown, and 2 are undedfined
 
 const countAllProperty = (data, property) => {
-	return {}
+	const countPropertyObject = data.reduce((acc, passenger) => {
+		if (acc[passenger.fields[property]]) {
+			acc[passenger.fields[property]] += 1
+		} else {
+			acc[passenger.fields[property]] = 1
+		}
+		return acc
+	}, {})
+	return countPropertyObject
 }
 
 
@@ -102,7 +110,9 @@ const normalizeProperty = (data, property) => {
 // would return ['male', 'female']
 
 const getUniqueValues = (data, property) => {
-	return []
+	const propertyValues = data.map(passenger => passenger.fields[property])
+	const uniquePropertyValues = new Set(propertyValues)
+	return Array.from(uniquePropertyValues)
 }
 
 // --------------------------------------------------------------

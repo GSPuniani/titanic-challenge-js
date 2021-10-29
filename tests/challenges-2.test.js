@@ -102,38 +102,38 @@ describe('Challenge 2 Titanic', () => {
 		expect(index.sumAllProperty(data, 'fare')).toBe(sumFares)
 	})
 
-	// test('Test countAllProperty', () => {
-	// 	const embarkedCounts = data.reduce((acc, p) => {
-	// 		if (acc[p.fields.embarked] === undefined) {
-	// 			acc[p.fields.embarked] = 1
-	// 		} else {
-	// 			acc[p.fields.embarked] += 1
-	// 		}
-	// 		return acc
-	// 	}, {})
+	test('Test countAllProperty', () => {
+		const embarkedCounts = data.reduce((acc, p) => {
+			if (acc[p.fields.embarked] === undefined) {
+				acc[p.fields.embarked] = 1
+			} else {
+				acc[p.fields.embarked] += 1
+			}
+			return acc
+		}, {})
 
-	// 	const genderCounts = data.reduce((acc, p) => {
-	// 		if (acc[p.fields.sex] === undefined) {
-	// 			acc[p.fields.sex] = 1
-	// 		} else {
-	// 			acc[p.fields.sex] += 1
-	// 		}
-	// 		return acc
-	// 	}, {})
+		const genderCounts = data.reduce((acc, p) => {
+			if (acc[p.fields.sex] === undefined) {
+				acc[p.fields.sex] = 1
+			} else {
+				acc[p.fields.sex] += 1
+			}
+			return acc
+		}, {})
 
-	// 	const pclassCounts = data.reduce((acc, p) => {
-	// 		if (acc[p.fields.pclass] === undefined) {
-	// 			acc[p.fields.pclass] = 1
-	// 		} else {
-	// 			acc[p.fields.pclass] += 1
-	// 		}
-	// 		return acc
-	// 	}, {})
+		const pclassCounts = data.reduce((acc, p) => {
+			if (acc[p.fields.pclass] === undefined) {
+				acc[p.fields.pclass] = 1
+			} else {
+				acc[p.fields.pclass] += 1
+			}
+			return acc
+		}, {})
 
-	// 	expect(index.countAllProperty(data, 'embarked')).toEqual(embarkedCounts)
-	// 	expect(index.countAllProperty(data, 'sex')).toEqual(genderCounts)
-	// 	expect(index.countAllProperty(data, 'pclass')).toEqual(pclassCounts)
-	// })
+		expect(index.countAllProperty(data, 'embarked')).toEqual(embarkedCounts)
+		expect(index.countAllProperty(data, 'sex')).toEqual(genderCounts)
+		expect(index.countAllProperty(data, 'pclass')).toEqual(pclassCounts)
+	})
 
 	// test('Test makeHistogram', () => {
 
@@ -182,11 +182,11 @@ describe('Challenge 2 Titanic', () => {
 	// 	expect(index.normalizeProperty(data, 'fare')).toEqual(normalizedFares)
 	// })
 
-	// test('Test getUniqueValues', () => {
-	// 	expect(index.getUniqueValues(data, 'pclass').sort()).toEqual([3, 2, 1].sort())
-	// 	expect(index.getUniqueValues(data, 'embarked').sort()).toEqual(['C', 'S', 'Q', undefined].sort())
-	// 	expect(index.getUniqueValues(data, 'sex').sort()).toEqual(['male', 'female'].sort())
-	// 	expect(index.getUniqueValues(data, 'survived').sort()).toEqual(['Yes', 'No'].sort())
-	// })
+	test('Test getUniqueValues', () => {
+		expect(index.getUniqueValues(data, 'pclass').sort()).toEqual([3, 2, 1].sort())
+		expect(index.getUniqueValues(data, 'embarked').sort()).toEqual(['C', 'S', 'Q', undefined].sort())
+		expect(index.getUniqueValues(data, 'sex').sort()).toEqual(['male', 'female'].sort())
+		expect(index.getUniqueValues(data, 'survived').sort()).toEqual(['Yes', 'No'].sort())
+	})
 
 })
