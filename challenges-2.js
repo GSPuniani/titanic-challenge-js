@@ -91,12 +91,14 @@ const countAllProperty = (data, property) => {
 
 const makeHistogram = (data, property, step) => {
 	const histogram = []
-	for (let i = 0; i < data.fields[property].length; i += 1) {
-		const value = data.fields[property][i] 
+	const validValues = filterNullForProperty(data, property).map(passenger => passenger.fields[property])
+	for (let i = 0; i < validValues.length; i += 1) {
+		const value = validValues[i] 
 		const index = Math.floor(value / step) 
 			histogram[index] = histogram[index] !== undefined ? histogram[index] + 1 : 1
 	}
-	return histogram
+	const filledHistogram = Array.from(histogram, a => a || 0)
+	return filledHistogram
 }
 
 // 7 ------------------------------------------------------------
