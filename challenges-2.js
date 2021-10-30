@@ -86,11 +86,17 @@ const countAllProperty = (data, property) => {
 
 // 6 ------------------------------------------------------------
 // Make histogram. The goal is to return an array with values 
-// of a properties divided into buckets and counting the number
+// of a property divided into buckets and counting the number
 // of items in each bucket.
 
 const makeHistogram = (data, property, step) => {
-	return []
+	const histogram = []
+	for (let i = 0; i < data.fields[property].length; i += 1) {
+		const value = data.fields[property][i] 
+		const index = Math.floor(value / step) 
+			histogram[index] = histogram[index] !== undefined ? histogram[index] + 1 : 1
+	}
+	return histogram
 }
 
 // 7 ------------------------------------------------------------
@@ -99,7 +105,10 @@ const makeHistogram = (data, property, step) => {
 // to divide each value by the maximum value in the array.
 
 const normalizeProperty = (data, property) => {
-	return []
+	const allValues = getAllValuesForProperty(data, property).filter(value => value !== undefined)
+	const maxValue = Math.max(...allValues)
+	const normalizedValues = allValues.map(value => value / maxValue)
+	return normalizedValues
 }
 
 // 8 ------------------------------------------------------------

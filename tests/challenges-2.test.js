@@ -135,52 +135,52 @@ describe('Challenge 2 Titanic', () => {
 		expect(index.countAllProperty(data, 'pclass')).toEqual(pclassCounts)
 	})
 
-	// test('Test makeHistogram', () => {
+	test('Test makeHistogram', () => {
 
-	// 	const ages10 = data.filter(p => p.fields.age !== undefined).reduce((acc, p) => {
-	// 		if (acc[Math.floor(p.fields.age / 10)] === undefined) {
-	// 			acc[Math.floor(p.fields.age / 10)] = 1
-	// 		} else {
-	// 			acc[Math.floor(p.fields.age / 10)] += 1
-	// 		}
-	// 		return acc 
-	// 	}, [])
+		const ages10 = data.filter(p => p.fields.age !== undefined).reduce((acc, p) => {
+			if (acc[Math.floor(p.fields.age / 10)] === undefined) {
+				acc[Math.floor(p.fields.age / 10)] = 1
+			} else {
+				acc[Math.floor(p.fields.age / 10)] += 1
+			}
+			return acc 
+		}, [])
 
-	// 	const ages5 = data.filter(p => p.fields.age !== undefined).reduce((acc, p) => {
-	// 		if (acc[Math.floor(p.fields.age / 5)] === undefined) {
-	// 			acc[Math.floor(p.fields.age / 5)] = 1
-	// 		} else {
-	// 			acc[Math.floor(p.fields.age / 5)] += 1
-	// 		}
-	// 		return acc 
-	// 	}, [])
+		const ages5 = data.filter(p => p.fields.age !== undefined).reduce((acc, p) => {
+			if (acc[Math.floor(p.fields.age / 5)] === undefined) {
+				acc[Math.floor(p.fields.age / 5)] = 1
+			} else {
+				acc[Math.floor(p.fields.age / 5)] += 1
+			}
+			return acc 
+		}, [])
 
-	// 	const fares = data.filter(p => p.fields.fare !== undefined).reduce((acc, p) => {
-	// 		if (acc[Math.floor(p.fields.fare / 10)] === undefined) {
-	// 			acc[Math.floor(p.fields.fare / 10)] = 1
-	// 		} else {
-	// 			acc[Math.floor(p.fields.fare / 10)] += 1
-	// 		}
-	// 		return acc 
-	// 	}, [])
+		const fares = data.filter(p => p.fields.fare !== undefined).reduce((acc, p) => {
+			if (acc[Math.floor(p.fields.fare / 10)] === undefined) {
+				acc[Math.floor(p.fields.fare / 10)] = 1
+			} else {
+				acc[Math.floor(p.fields.fare / 10)] += 1
+			}
+			return acc 
+		}, [])
 
-	// 	expect(index.makeHistogram(data, 'age', 10)).toEqual(Array.from(ages10, v => v || 0))
-	// 	expect(index.makeHistogram(data, 'age', 5)).toEqual(Array.from(ages5, v => v || 0))
-	// 	expect(index.makeHistogram(data, 'fare', 10)).toEqual(Array.from(fares, v => v || 0))
-	// })
+		expect(index.makeHistogram(data, 'age', 10)).toEqual(Array.from(ages10, v => v || 0))
+		expect(index.makeHistogram(data, 'age', 5)).toEqual(Array.from(ages5, v => v || 0))
+		expect(index.makeHistogram(data, 'fare', 10)).toEqual(Array.from(fares, v => v || 0))
+	})
 
-	// test('Test normalizeProperty', () => {
-	// 	const ages = data.filter(p => p.fields.age !== undefined).map(p => p.fields.age)
-	// 	const maxAge = Math.max(...ages)
-	// 	const normalizedAges = ages.map(v => v / maxAge)
+	test('Test normalizeProperty', () => {
+		const ages = data.filter(p => p.fields.age !== undefined).map(p => p.fields.age)
+		const maxAge = Math.max(...ages)
+		const normalizedAges = ages.map(v => v / maxAge)
 
-	// 	const fares = data.map(p => p.fields.fare)
-	// 	const maxFare = Math.max(...fares)
-	// 	const normalizedFares = fares.map(v => v / maxFare)
+		const fares = data.map(p => p.fields.fare)
+		const maxFare = Math.max(...fares)
+		const normalizedFares = fares.map(v => v / maxFare)
 		
-	// 	expect(index.normalizeProperty(data, 'age')).toEqual(normalizedAges)
-	// 	expect(index.normalizeProperty(data, 'fare')).toEqual(normalizedFares)
-	// })
+		expect(index.normalizeProperty(data, 'age')).toEqual(normalizedAges)
+		expect(index.normalizeProperty(data, 'fare')).toEqual(normalizedFares)
+	})
 
 	test('Test getUniqueValues', () => {
 		expect(index.getUniqueValues(data, 'pclass').sort()).toEqual([3, 2, 1].sort())
